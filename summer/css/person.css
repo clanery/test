@@ -1,0 +1,37 @@
+body {
+    background-color: #f7f7f7;
+}
+
+.order {
+    font-size: 18px;
+    margin: 0 80px 6px 1100px;
+}
+
+.header {
+    margin: 10px auto;
+    width: 80%;
+}
+
+button {
+    width: 24.7%;
+    height: 25px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#line {
+    margin: 40px auto;
+    height: 600px;
+    width: 900px;
+    background-color: #fff;
+    border: 1px solid #dedede;
+}
+
+#pie {
+    margin: 80px auto;
+    height: 600px;
+    width: 600px;
+    background-color: #fff;
+    border: 1px solid #dedede;
+}
+

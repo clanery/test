@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册账号页面</title>
+    <link rel="stylesheet" type="text/css" href="css/add.css">
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <div id="content">
+        <div id="box">
+            <div class="input">
+                <input type="text" id="username" value="" placeholder="用户名" />
+                <br>
+                <input type="password" id="password" placeholder="密码" />
+                <br>
+                <input type="repassword" id="repassword" placeholder="再次输入密码" />
+                <br>
+            </div>
+            <button type="button">注 册</button>
+        </div>
+    </div>
+    <script>
+    $(function () {
+    // 按钮单击时执行
+    $("button").click(function () {
+        var username = $('#username').val();
+        var password = $('#password').val();
+        var repassword = $('#repassword').val();
+
+        if (!checkParams({
+            username: username,
+            password: password
+        })) {
+            return false;
+        }
+
+        $.post("http://url/register",
+            {
+                username: username,
+                password: password
+            }, function (data) {
+                alert('注册成功~');
+                window.location.href="file:///C:/Users/86199/Desktop/HTML/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/login.html"
+            });
+    });
+
+    // 校验提交数据
+    function checkParams(params) {
+        if (!params.username) {
+            alert('用户名不能为空~');
+            return false;
+        }
+        if (!params.password) {
+            alert('密码不能为空~');
+            return false;
+        }
+        if (repassword!==password) {
+            alert('两次输入密码不一致');
+            return false;
+        }
+        return true;
+    }
+});
+
+    </script>
+</body>
+</html>

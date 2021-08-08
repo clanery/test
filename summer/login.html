@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>系统登录界面</title>
+		<link rel="stylesheet" type="text/css" href="css/login.css">
+		<script src="js/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="content">
+			<div id="box">
+				<div class="title">Login</div>
+				<div class="input">
+					<input type="text" id="username" value="" placeholder="用户名" />
+					<br>
+					<input type="password" id="password" placeholder="密码" />
+					<br>
+					<button type="button">登  录</button>
+				</div>
+				<a href="file:///C:/Users/86199/Desktop/HTML/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/add.html">注 册</a>
+			</div>
+		</div>
+		<script>
+			$(function(){
+				$("button").onclick(function(){
+					$.post(url,{
+						user:document.getElementById("username"),
+						pass:document.getElementById("password")
+					},
+					function(username,password){
+						if(password==document.getElementById("password")){
+							window.location.href= "file:///C:/Users/86199/Desktop/HTML/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/index.html" ;
+						} else {
+							alert("用户名或密码错误");
+						}
+					})
+					//user,pass,username,password
+				})
+			})
+		</script>
+        
+	</body>
+
+</html>
+

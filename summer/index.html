@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据统计界面</title>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="header">
+        <!-- 侧边栏 -->
+        <div class="nav">
+            <div><a class="glyphicon glyphicon-menu-hamburger" href="file:///C:/Users/86199/Desktop/HTML/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/login.html"> 退出</a></div>
+            <div><a class="glyphicon glyphicon-home" id="quit"> 首页</a></div>
+            <div><a class="glyphicon glyphicon-th" href="file:///C:/Users/86199/Desktop/HTML/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/phy.html"> 图像对比</a></div>
+            <div>
+                <a class="glyphicon glyphicon-cog" id="dropdownMenu"> 账户设置</a>
+                <ul class="dropdown">
+                    <li><a href="file:///C:/Users/86199/Desktop/HTML/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/uesrset.html">更改用户名</a></li>
+                    <li><a href="file:///C:/Users/86199/Desktop/HTML/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/passwordset.html">更改密码</a></li>
+                </ul>
+            </div>
+        </div>
+        <span class="shift"><a class="glyphicon glyphicon-menu-hamburger" id="enter"></a></span>
+        <!-- 查询 -->
+        <div style="background-color: #fff;">
+            <div class="glyphicon glyphicon-search" id="icon">
+                <input type="text" id="searach" value="" placeholder="请输入病人姓名" onkeyup="searach ()" />
+            </div>
+        </div>
+    </div>
+
+    <!-- 表格 -->
+    <table cellpadding="0" cellspacing="0" style="height:auto;width:94%;background-color:#fff" align="center" class="bordered">
+         <thead>
+             <tr>
+                 <th rowspan="2" align="center" width="8%" style="text-align: center;" class="glyphicon glyphicon-list"> 设备号</th>
+                 <th rowspan="2" align="center" width="27%" style="text-align: center;" class="glyphicon glyphicon-user"> 病人姓名</th>
+                 <th rowspan="2" align="center" width="27%" style="text-align: center;" class="glyphicon glyphicon-stop"> 设备状态</th>
+                 <th rowspan="2" align="center" width="27%" style="text-align: center;" class="glyphicon glyphicon-heart"> 情绪状态</th>
+                 <th rowspan="2" align="center" width="8%" style="text-align: center;" class="glyphicon glyphicon-option-horizontal"> 更多</th>
+             </tr>
+         </thead>
+         <tbody id="population">
+             <tr>
+                <td> 1 </td>
+                <td> 张三 </td>
+                <td> 在线 </td>
+                <td> 稳定 </td>
+                <td><a href="file:///C:/Users/86199/Desktop/HTML/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/person.html"> 更多</a></td>
+             </tr>
+             <tr>
+                <td> 2 </td>
+                <td> 张三 </td>
+                <td> 在线 </td>
+                <td> 稳定 </td>
+                <td><a href="file:///C:/Users/86199/Desktop/HTML/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/person.html"> 更多</a></td>
+             </tr>
+             <tr>
+                <td> 3 </td>
+                <td> 张三 </td>
+                <td> 在线 </td>
+                <td> 稳定 </td>
+                <td><a href="file:///C:/Users/86199/Desktop/HTML/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/person.html"> 更多</a></td>
+             </tr>
+             <tr>
+                <td> 4 </td>
+                <td> 张三 </td>
+                <td> 在线 </td>
+                <td> 稳定 </td>
+                <td><a href="file:///C:/Users/86199/Desktop/HTML/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/person.html"> 更多</a></td>
+             </tr>
+             <tr>
+                <td> 5 </td>
+                <td> 张三 </td>
+                <td> 在线 </td>
+                <td> 稳定 </td>
+                <td><a href="file:///C:/Users/86199/Desktop/HTML/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/person.html"> 更多</a></td>
+             </tr>
+         </tbody>    
+    </table> 
+    <!-- 分页 -->
+    <ul>
+        <li class="list_btn">上一页</li>
+        <li class="page_num"></li>
+        <li class="page_num"></li>
+        <li class="page_num action"></li>
+        <li class="page_num"></li>
+        <li class="page_num"></li>
+        <li class="list_btn">下一页</li>
+    </ul>
+
+    <script type="text/javascript">
+    // 导航栏
+        var enter=document.getElementsByClassName('#enter');
+        var quit=document.getElementById('#quit');
+        $('#enter').on('click',function(){
+            $('.nav').width(126.4);
+            $('.nav').height(600);
+            $('.bordered').width(1074.4);
+        })
+        $('#quit').on('click',function(){
+            $('.nav').width(0);
+            $('.nav').height(0);
+            $('.bordered').width(1203.2);
+        })
+    // 下拉菜单
+        $('.dropdown').hide();
+        $('#dropdownMenu').on('click',function(){
+            $('.dropdown').toggle();
+        })
+    // 搜索
+        function searach () {
+            var input = document.getElementById("searach").value.toUpperCase();
+            var table = document.getElementsByClassName("bordered");
+            var tr = document.getElementsByTagName("tr");
+
+            for (i=0;i<tr.length;i++) {
+                td = tr[i].getElementsByTagName("td")[2];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(input) > -1) {
+                      tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    // 分页
+       //文章数目
+        var tr = $("#population").children("tr");
+        var list_num=tr.length;
+        //ali，获取页码的DOM
+        var ali=document.getElementsByClassName('page_num');
+        //btn，获取上下2页的按钮
+        var btn=document.getElementsByClassName('list_btn');
+        var paging=new Paging(list_num,ali,btn);
+        paging.init();
+        // 初始页面显示
+        for (var i=0;i<list_num;i++) {
+            if(i>=0&&i<paging.num) {
+                 tr[i].style.display = "";
+            } else {
+                 tr[i].style.display = "none";
+            }
+        }
+        // 主函数
+        function Paging(list_num,ali,btn){
+            this.list_num=list_num,
+            this.ali=ali,
+            this.btn=btn,
+            this.page=1,//定义一个当前页面的全局变量
+            this.num=3,//每页文章数目
+            this.page_num=Math.ceil(this.list_num/this.num),//根据文章数和每页显示数，向上取整算出页码数
+            this.drc=[this.page-2,this.page-1,this.page,this.page+1,this.page+2],
+            this.render=function () {
+               if(this.page<=0){
+                     alert('已经是列表的首页');
+                    }else if(this.page>this.page_num){
+                        alert('已经是列表的最后一页');
+                        }else{
+                            this.drc=[this.page-2,this.page-1,this.page,this.page+1,this.page+2];
+                            for(var i=0,len=ali.length;i<len;i++){
+                                if(this.drc[i]<=0||this.drc[i]>this.page_num){
+                                    ali[i].innerText='*';
+                                }else{
+                                    ali[i].innerText=this.drc[i];
+                                }
+                            }
+                        }
+                    },
+            // 显示页面函数
+            this.dis=function(){
+                for (var i=0;i<this.list_num;i++) {
+                    if(i>=(this.page-1)*this.num&&i<this.page*this.num) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            this.init=function () {
+            var self=this;
+            //ali绑定点击事件
+            for(var i=0,len=ali.length;i<len;i++){
+                //给ali添加innertext
+                if(this.drc[i]>0&&this.drc[i]<=this.page_num){
+                    ali[i].innerText=this.drc[i];
+                }else{
+                    ali[i].innerText='*';
+                }
+                ali[i].onclick=function(){
+                    var val=this.innerText;
+                    if(val%1===0){
+                        self.page=parseInt(val);
+                    }else{
+                        alert('请单击正确的页码');
+                        return;
+                    }
+                    self.render();
+                    self.dis();
+                }
+            }
+            //给上一页、下一页添加点击事件
+            btn[0].onclick=function(){
+                self.page--;
+                self.render();
+                self.dis();
+            }
+            btn[1].onclick=function(){
+                self.page++;
+                self.render();
+                self.dis();
+            }
+          }
+        }
+    // 后端传输数据
+    $(function(){
+        $.ajax({
+            url:"/Home/Popula/",
+            type:"post",
+            cache:false,
+            datatype:"json",
+            success:function(data) {
+                try {
+                    var tmpData = $.parseJSON(data);
+                    for (var i = 0;i < tmpData.length;i++) {
+                        var newRow = '<tr><td>'
+                            + tmpData[i].region + '</td><td>'
+                            + tmpData[i].qiChu + '</td><td>'
+                            + tmpData[i].qiMo + '</td><td>'
+                            + tmpData[i].deadNum + '</td></tr>';
+
+                        $('#population').append(newRow);
+                    }
+                }
+                catch (err) {
+                    alert('数据获取失败：' + err.message);
+                }
+            },
+            error:function(response) {
+                alert('数据获取失败，原因：超时或则错误号：' + response.status + ',请稍后再试。');
+            }
+        });
+    })
+    </script>
+
+</body>
+</html>

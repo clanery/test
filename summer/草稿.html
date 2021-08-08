@@ -1,0 +1,156 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            /* background: pink; */
+            margin: 0 auto;
+        }
+        .nav{
+            /* width: 30%; */
+            /*点击后width增加*/
+            width: 0;
+            /*平常状态nav的width为0（隐藏）*/
+            height: 100%;
+            background: #000;
+            color: white;
+            float: left;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+        .text{
+            /* width: 70%; */
+            /*点击后*/
+            width: 100%;
+            /*平常状态100%width*/
+            height: 100%;
+            float: left;
+            word-wrap: break-word;
+            /* background: rgb(121, 236, 75; */
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="nav" id="nav">
+            <p>meun</p>
+            <p>meun</p>
+            <p>meun</p>
+            <button id="col">关闭</button>
+        </div>
+        <div class="text" id="text">
+            wenzijsidjsfgbhkjshfgushtriugsrltdhgiuthlughl
+            tgiothiuthltsurhlehgutiriurthieushrlstuhriutr
+            rjnskrhgirsuehgiuserhturehtiurhetiuhrthriturh
+            <button id="open">按此处出导航栏</button>
+        </div>
+    </div>
+
+    $(function(){
+        $('.navmenu').mouseover(function(){
+        $(this).children('ul').show();
+        });
+        $('.navmenu').mouseout(function(){
+        $(this).children('ul').hide();
+        });
+        })
+
+</body>
+<script>
+    var nav=document.getElementById('nav');
+    var text=document.getElementById('text');
+    var col=document.getElementById('col');
+    var open=document.getElementById('open');
+    open.onclick=function (){
+        nav.style.width='30%';
+        text.style.width='70%';
+        text.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+    col.onclick=function(){
+        nav.style.width='0%';
+        text.style.width='100%';
+        text.style.backgroundColor = "white";
+    }
+
+    $('.btn').on('click',function () {
+        $('.btn').toggleClass('btnc');
+        $('.sidebar').toggleClass('side');
+
+    })
+
+</script>
+</html> -->
+
+
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main')); 
+                
+                var option = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['销量']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"销量",
+                            "type":"bar",
+                            "data":[5, 20, 40, 10, 10, 20]
+                        }
+                    ]
+                };
+        
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            }
+        );
+    </script>
+</body>

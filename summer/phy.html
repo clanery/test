@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图像分析页面</title>
+    
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/person.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #f7f7f7;">
+    <div id="phy" style="width: 1200px; height: 1000px; margin: 60px auto; background-color: #fff; border: 1px solid #dedede;"></div>
+
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script>
+         var chartDom = document.getElementById('phy');
+         var myChart = echarts.init(chartDom);
+         var option;
+         option = {
+                title: {
+                    text: '用户异常次数比例',
+                    left:'center',
+                    top:44,
+                    textStyle: {
+                        fontSize:20,
+                        fontWeight:400
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['patient1', 'patient2', 'patient3', 'patient4', 'patient5'],
+                    left:'center',
+                    top:'16'
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    top:'8%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['24:00~2:00', '2:00~4:00', '4:00~6:00', '6:00~8:00', '8:00~10:00', '10:00~12:00', '12:00~14:00','14:00~16:00','16:00~18:00','18:00~20:00','20:00~22:00','22:00~24:00']
+                },
+                yAxis: {
+                    type: 'value',
+                    min: 0,
+                    max: 100,
+                    interval: 10,
+                    axisLabel: {
+                       formatter: '{value} %'
+                }
+                },
+                series: [
+                    {
+                        name: 'patient1',
+                        type: 'line',
+                        data: [20,19,40,28,35,19,26,30,36]
+                    },
+                    {
+                        name: 'patient2',
+                        type: 'line',
+                        data: [29,40,18,19,29,36,32,31,27,20,34]
+                    },
+                    {
+                        name: 'patient3',
+                        type: 'line',
+                        data: [15,23,32,30,39,32,28,18,28]
+                    },
+                    {
+                        name: 'patient4',
+                        type: 'line',
+                        data: [28,39,19,34,12,13,24,10,27,39]
+                    },
+                    {
+                        name: 'patient5',
+                        type: 'line',
+                        data: [20,17,10,28,31,20,30,17,23,29,1,20]
+                    }
+                ]
+            };
+         option && myChart.setOption(option);
+    </script>
+</body>
+</html>
